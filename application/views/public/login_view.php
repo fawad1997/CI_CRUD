@@ -6,15 +6,29 @@
 <?php echo form_open('user/userLogin'); ?>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <?= form_input(['name'=>'em','class'=>'form-control','placeholder'=>'Email']) ?>
+    <div class="row">
+        <div class="col-sm-6">
+            <?= form_input(['name'=>'em','class'=>'form-control','placeholder'=>'Email']) ?>
+        </div>
+        <div class="col-sm-6">
+            <?=form_error('em') ?>
+        </div>
+    </div>
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <?=form_password(['name'=>'pass','class'=>'form-control','placeholder'=>'Password']) ?>
+    <div class="row">
+        <div class="col-sm-6">
+            <?=form_password(['name'=>'pass','class'=>'form-control','placeholder'=>'Password']) ?>
+        </div>
+        <div class="col-sm-6">
+            <?=form_error('pass',"<p class='text-danger'>","</p>") ?>
+        </div>
+    </div>
   </div>
   <?=form_reset(['value'=>'Cancel','class'=>'btn btn-secondary']) ?>
   <?=form_submit(['name'=>'submit','class'=>'btn btn-primary','value'=>'Login']) ?>
 </form>
 </div>
-<?php include('footer.php');?>
+<?php include('footer.php'); ?>
