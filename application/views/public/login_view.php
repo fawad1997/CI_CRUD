@@ -8,7 +8,7 @@
     <label for="exampleInputEmail1">Email address</label>
     <div class="row">
         <div class="col-sm-6">
-            <?= form_input(['name'=>'em','class'=>'form-control','placeholder'=>'Email']) ?>
+            <?= form_input(['name'=>'em','class'=>'form-control','placeholder'=>'Email','value'=>set_value('em')]) ?>
         </div>
         <div class="col-sm-6">
             <?=form_error('em') ?>
@@ -20,7 +20,7 @@
     <label for="exampleInputPassword1">Password</label>
     <div class="row">
         <div class="col-sm-6">
-            <?=form_password(['name'=>'pass','class'=>'form-control','placeholder'=>'Password']) ?>
+            <?=form_password(['name'=>'pass','class'=>'form-control','placeholder'=>'Password','value'=>set_value('pass')]) ?>
         </div>
         <div class="col-sm-6">
             <?=form_error('pass',"<p class='text-danger'>","</p>") ?>

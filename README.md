@@ -10,3 +10,6 @@ Database name and server user/password added in database.php file
 2.added base controller
 3.added css and js files
 4.navbar designed
+
+#Commit no 7
+keep correct valus of form
