@@ -13,3 +13,6 @@ Database name and server user/password added in database.php file
 
 #Commit no 7
 keep correct valus of form
+
+#Commit no 8
+Getting input from user after validation $this->input->post('field name');

@@ -11,7 +11,9 @@ class User extends My_Controller{
         $this->form_validation->set_rules('pass','Password','required|min_length[5]');
         $this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
         if($this->form_validation->run()){
-            echo "Reached Login Function Success";
+            $em = $this->input->post('em');
+            $pas = $this->input->post('pass');
+            echo "Email $em and Password $pas";
         }else{
             $this->load->view('public/login_view');
             //echo validation_errors();
