@@ -3,4 +3,10 @@ A CRUD Operation with code igniter 3.1 using PHP 7.2 Authentication/Authorizatio
 
 Database name and server user/password added in database.php file
 
-/htaccess file added to hide index.php from url
+.htaccess file added to hide index.php from url
+
+#Commit no 4
+1.html and url helpers added in autoload
+2.added base controller
+3.added css and js files
+4.navbar designed
