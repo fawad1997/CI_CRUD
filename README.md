@@ -35,3 +35,6 @@ Logout User
 
 # Commit no 14
 Handled Incorrect Email/Password
+
+# Commit no 15
+Add Product View

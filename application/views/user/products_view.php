@@ -2,6 +2,10 @@
 
 <div class="container">
 <div class="row">
+    <a href="<?=base_url('user/add_product')?>" class="btn btn-secondary">Add Product</a>
+</div>
+<br/>
+<div class="row">
     <?php
         if(count($products)):
             foreach($products as $product):

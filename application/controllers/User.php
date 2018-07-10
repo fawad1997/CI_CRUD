@@ -34,11 +34,41 @@ class User extends My_Controller{
     }
 
     public function products_view(){
-        $this->load->library('session');
         if($this->session->user_id){
             $this->load->model('ProductModel');
             $products = $this->ProductModel->products_list();
             $this->load->view('user/products_view',['products'=>$products]);
+        }else{
+            return redirect('user/login');
+        }
+    }
+
+    public function add_product(){
+        if($this->session->user_id){
+            $this->load->helper('form');
+            $this->load->view('user/addproduct_view');
+        }else{
+            return redirect('user/login');
+        }
+    }
+
+    public function addProduct(){
+        if($this->session->user_id){
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules('nam','Name','required');
+            $this->form_validation->set_rules('desc','Description','required|min_length[5]');
+            $this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
+            if($this->form_validation->run()){
+                $user_id = $this->input->post('user_id');
+                $nam = $this->input->post('nam');
+                $url = $this->input->post('url');
+                $desc = $this->input->post('desc');
+                $this->load->model('ProductModel');
+                $this->ProductModel->add_product($nam,$url,$desc,$user_id);
+            }else{
+                $this->load->view('user/addproduct_view');
+            }
+            //$this->load->helper('form');
         }else{
             return redirect('user/login');
         }
