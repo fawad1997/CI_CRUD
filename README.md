@@ -19,3 +19,9 @@ Getting input from user after validation $this->input->post('field name');
 
 # Commit no 9
 Login Model Created
+
+# Commit no 10
+Credentials match from db
+
+# Commit no 11
+Setting user id in session

@@ -14,8 +14,14 @@ class User extends My_Controller{
             $em = $this->input->post('em');
             $pas = $this->input->post('pass');
             $this->load->model('LoginModel');
-            if($this->LoginModel->validate_login($em,$pas)){
-              echo "Email $em and Password $pas";
+            $login_id = $this->LoginModel->validate_login($em,$pas);
+            if($login_id){
+                $this->load->library('session');
+                $this->session->set_userdata('user_id',$login_id);
+
+                //echo $this->session->user_id;
+            }else{
+                echo "Incorrect Email/ Password";
             }
         }else{
             $this->load->view('public/login_view');
