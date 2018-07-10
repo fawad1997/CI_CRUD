@@ -18,7 +18,7 @@ class User extends My_Controller{
             if($login_id){
                 $this->load->library('session');
                 $this->session->set_userdata('user_id',$login_id);
-
+                return redirect('user/products_view');
                 //echo $this->session->user_id;
             }else{
                 echo "Incorrect Email/ Password";
@@ -27,6 +27,12 @@ class User extends My_Controller{
             $this->load->view('public/login_view');
             //echo validation_errors();
         }
+    }
+
+    public function products_view(){
+        $this->load->model('ProductModel');
+        $products = $this->ProductModel->products_list();
+        $this->load->view('user/products_view',['products'=>$products]);
     }
 }
 ?>

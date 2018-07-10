@@ -25,3 +25,6 @@ Credentials match from db
 
 # Commit no 11
 Setting user id in session
+
+# Commit no 12
+Displaying Products from database after user login

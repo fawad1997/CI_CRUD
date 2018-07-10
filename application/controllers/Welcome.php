@@ -23,6 +23,6 @@ class Welcome extends My_Controller {
 		//added in autoload file
 		//$this->load->helper('html');
 		//$this->load->helper('url');
-		$this->load->view('user/products_view');
+		$this->load->view('public/noaccess_view');
 	}
 }
