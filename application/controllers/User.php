@@ -30,9 +30,20 @@ class User extends My_Controller{
     }
 
     public function products_view(){
-        $this->load->model('ProductModel');
-        $products = $this->ProductModel->products_list();
-        $this->load->view('user/products_view',['products'=>$products]);
+        $this->load->library('session');
+        if($this->session->user_id){
+            $this->load->model('ProductModel');
+            $products = $this->ProductModel->products_list();
+            $this->load->view('user/products_view',['products'=>$products]);
+        }else{
+            return redirect('user/login');
+        }
+    }
+
+    public function logout_user(){
+        $this->load->library('session');
+        $this->session->unset_userdata('user_id');
+        return redirect('user/login');
     }
 }
 ?>

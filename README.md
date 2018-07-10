@@ -28,3 +28,7 @@ Setting user id in session
 
 # Commit no 12
 Displaying Products from database after user login
+
+# Commit no 13
+Checking if user is logged in
+Logout User

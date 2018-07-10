@@ -24,7 +24,7 @@
 				</li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-link">Logout </li>
+					<li class="nav-link"><a href="<?=base_url('user/logout_user') ?>" class="nav-link">Logout</a> </li>
 				</ul>
 			</div>
 		</div>
