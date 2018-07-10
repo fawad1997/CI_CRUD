@@ -20,9 +20,9 @@ class Welcome extends My_Controller {
 	 */
 	public function index()
 	{
-		//added in autoload file
-		//$this->load->helper('html');
-		//$this->load->helper('url');
+		if($this->session->user_id){
+            return redirect('user/products_view');
+        }
 		$this->load->view('public/noaccess_view');
 	}
 }

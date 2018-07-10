@@ -3,6 +3,12 @@
 
 <div class="container">
 <center><h2>Login</h2></center>
+<?php
+    if($error = $this->session->flashdata('login_faild')): ?>
+        <div class="alert alert-danger" role="alert">
+            <?=$error ?>
+        </div>
+<?php  endif;?>
 <?php echo form_open('user/userLogin'); ?>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>

@@ -32,3 +32,6 @@ Displaying Products from database after user login
 # Commit no 13
 Checking if user is logged in
 Logout User
+
+# Commit no 14
+Handled Incorrect Email/Password

@@ -1,6 +1,9 @@
 <?php
 class User extends My_Controller{
     public function login(){
+        if($this->session->user_id){
+            return redirect('user/products_view');
+        }
         $this->load->helper('form');
         $this->load->view('public/login_view');
     }
@@ -21,7 +24,8 @@ class User extends My_Controller{
                 return redirect('user/products_view');
                 //echo $this->session->user_id;
             }else{
-                echo "Incorrect Email/ Password";
+                $this->session->set_flashdata('login_faild','Incorrect Email or Password');
+                $this->load->view('public/login_view');
             }
         }else{
             $this->load->view('public/login_view');
