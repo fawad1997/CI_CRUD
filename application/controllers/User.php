@@ -13,7 +13,10 @@ class User extends My_Controller{
         if($this->form_validation->run()){
             $em = $this->input->post('em');
             $pas = $this->input->post('pass');
-            echo "Email $em and Password $pas";
+            $this->load->model('LoginModel');
+            if($this->LoginModel->validate_login($em,$pas)){
+              echo "Email $em and Password $pas";
+            }
         }else{
             $this->load->view('public/login_view');
             //echo validation_errors();

@@ -5,14 +5,17 @@ Database name and server user/password added in database.php file
 
 .htaccess file added to hide index.php from url
 
-#Commit no 4
+# Commit no 4
 1.html and url helpers added in autoload
 2.added base controller
 3.added css and js files
 4.navbar designed
 
-#Commit no 7
+# Commit no 7
 keep correct valus of form
 
-#Commit no 8
+# Commit no 8
 Getting input from user after validation $this->input->post('field name');
+
+# Commit no 9
+Login Model Created
