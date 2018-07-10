@@ -5,6 +5,12 @@
     <a href="<?=base_url('user/add_product')?>" class="btn btn-secondary">Add Product</a>
 </div>
 <br/>
+<?php
+    if($error = $this->session->flashdata('articleaddmsg')): ?>
+        <div class="<?=$this->session->flashdata('articleclass')?>" role="alert">
+            <?=$error ?>
+        </div>
+<?php  endif;?>
 <div class="row">
     <?php
         if(count($products)):

@@ -7,8 +7,8 @@ class ProductModel extends CI_Model{
         return $prod->result();
     }
 
-    public function add_product($nam,$url,$desc,$userid){
-        return true;
+    public function add_product($form_array){
+        return $this->db->insert('product',$form_array);
     }
 }
 

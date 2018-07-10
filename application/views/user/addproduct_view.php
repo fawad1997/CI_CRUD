@@ -7,10 +7,10 @@
         <label>Name</label>
         <div class="row">
             <div class="col-sm-6">
-                <?= form_input(['name'=>'nam','class'=>'form-control','placeholder'=>'Product Name','value'=>set_value('nam')]) ?>
+                <?= form_input(['name'=>'name','class'=>'form-control','placeholder'=>'Product Name','value'=>set_value('name')]) ?>
             </div>
             <div class="col-sm-6">
-                <?=form_error('nam') ?>
+                <?=form_error('name') ?>
             </div>
         </div>
     </div>
@@ -29,10 +29,10 @@
         <label for="exampleInputPassword1">Description</label>
         <div class="row">
             <div class="col-sm-6">
-                <?=form_textarea(['name'=>'desc','class'=>'form-control','placeholder'=>'Password','value'=>set_value('desc')]) ?>
+                <?=form_textarea(['name'=>'description','class'=>'form-control','placeholder'=>'Description','value'=>set_value('description')]) ?>
             </div>
             <div class="col-sm-6">
-                <?=form_error('desc') ?>
+                <?=form_error('description') ?>
             </div>
         </div>
     </div>

@@ -55,16 +55,21 @@ class User extends My_Controller{
     public function addProduct(){
         if($this->session->user_id){
             $this->load->library('form_validation');
-            $this->form_validation->set_rules('nam','Name','required');
-            $this->form_validation->set_rules('desc','Description','required|min_length[5]');
+            $this->form_validation->set_rules('name','Name','required');
+            $this->form_validation->set_rules('description','Description','required|min_length[5]');
             $this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
             if($this->form_validation->run()){
-                $user_id = $this->input->post('user_id');
-                $nam = $this->input->post('nam');
-                $url = $this->input->post('url');
-                $desc = $this->input->post('desc');
+                $form_values = $this->input->post();
+                unset($form_values['submit']);
                 $this->load->model('ProductModel');
-                $this->ProductModel->add_product($nam,$url,$desc,$user_id);
+                if($this->ProductModel->add_product($form_values)){
+                    $this->session->set_flashdata('articleaddmsg','Product Added Successfully');
+                    $this->session->set_flashdata('articleclass','alert alert-success');
+                }else{
+                    $this->session->set_flashdata('articleaddmsg','Unable to add Product');
+                    $this->session->set_flashdata('articleclass','alert alert-danger');
+                }
+                redirect('user/products_view');
             }else{
                 $this->load->view('user/addproduct_view');
             }

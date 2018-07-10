@@ -38,3 +38,6 @@ Handled Incorrect Email/Password
 
 # Commit no 15
 Add Product View
+
+# Commit no 16
+Product Added
