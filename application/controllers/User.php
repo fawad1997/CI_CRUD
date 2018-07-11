@@ -79,6 +79,47 @@ class User extends My_Controller{
         }
     }
 
+    public function edit_product($id){
+        if($this->session->user_id){
+            $this->load->helper('form');
+            $this->load->model('ProductModel');
+            $article =$this->ProductModel->find_product($id);
+            $this->load->view('user/editproduct_view',['article'=>$article]);
+            //print_r($article); exit;
+        }else{
+            return redirect('user/login');
+        }
+    }
+
+    public function editProduct(){
+        if($this->session->user_id){
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules('name','Name','required');
+            $this->form_validation->set_rules('description','Description','required|min_length[5]');
+            $this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
+            if($this->form_validation->run()){
+                $form_values = $this->input->post();
+                unset($form_values['submit']);
+                $prod_id = $form_values['id'];
+                unset($form_values['id']);
+                $this->load->model('ProductModel');
+                if($this->ProductModel->update_product($prod_id,$form_values)){
+                    $this->session->set_flashdata('articleaddmsg','Product Updated Successfully');
+                    $this->session->set_flashdata('articleclass','alert alert-success');
+                }else{
+                    $this->session->set_flashdata('articleaddmsg','Unable to update Product');
+                    $this->session->set_flashdata('articleclass','alert alert-danger');
+                }
+                redirect('user/products_view');
+            }else{
+                $this->load->view('user/addproduct_view');
+            }
+            //$this->load->helper('form');
+        }else{
+            return redirect('user/login');
+        }
+    }
+
     public function logout_user(){
         $this->load->library('session');
         $this->session->unset_userdata('user_id');
