@@ -15,6 +15,10 @@ class ProductModel extends CI_Model{
         return $this->db->where('id',$productId)->update('product',$product);
     }
 
+    public function delete_product($prod_id){
+        return $this->db->delete('product',['id'=>$prod_id]);
+    }
+
     public function find_product($id){
         return $this->db->where('id',$id)->get('product')->row();
     }

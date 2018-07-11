@@ -44,3 +44,6 @@ Product Added
 
 # Commit no 17
 Product Updated
+
+# COmmit no 18
+Product Deleted

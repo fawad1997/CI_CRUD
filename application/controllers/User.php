@@ -120,6 +120,18 @@ class User extends My_Controller{
         }
     }
 
+    public function delete_product($id){
+        $this->load->model('ProductModel');
+                if($this->ProductModel->delete_product($id)){
+                    $this->session->set_flashdata('articleaddmsg','Product Deleted Successfully');
+                    $this->session->set_flashdata('articleclass','alert alert-success');
+                }else{
+                    $this->session->set_flashdata('articleaddmsg','Unable to delete Product');
+                    $this->session->set_flashdata('articleclass','alert alert-danger');
+                }
+                redirect('user/products_view');
+    }
+
     public function logout_user(){
         $this->load->library('session');
         $this->session->unset_userdata('user_id');

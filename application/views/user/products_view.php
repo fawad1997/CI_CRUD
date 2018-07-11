@@ -22,7 +22,8 @@
         <h5 class="card-title"><?=$product->name ?></h5>
         <p class="card-text"><?=$product->description ?></p>
         <?=anchor("user/edit_product/{$product->id}",'Edit',['class'=>'btn btn-primary']) ?>
-        <a href="#" class="btn btn-danger">Delete</a>
+        <?=anchor("user/delete_product/{$product->id}",'Delete',['class'=>'btn btn-danger']) ?>
+        <!-- <a href="#" class="btn btn-danger">Delete</a> -->
     </div>
     </div>
     <?php
